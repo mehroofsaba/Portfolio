@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sabielle — Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="petal-canvas"></canvas>
+
+    <header>
+      <div class="logo">Sabielle</div>
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mainNav">
+        <a href="#work">work</a>
+        <a href="#about">about</a>
+        <a href="#experience">experience</a>
+        <a href="#contact">contact</a>
+        <a href="#contact" class="nav-cta">let's talk</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="hero">
+      <svg class="branch branch-tl" viewBox="0 0 300 300" fill="none">
+        <path
+          d="M0 20C40 40 70 30 100 60C130 90 120 130 160 150"
+          stroke="#D9A5AE"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M60 45C70 35 85 35 90 50"
+          stroke="#D9A5AE"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M100 75C112 68 122 72 122 85"
+          stroke="#D9A5AE"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <circle cx="55" cy="42" r="6" fill="#F4D9DC" />
+        <circle cx="72" cy="30" r="5" fill="#F4D9DC" />
+        <circle cx="95" cy="72" r="6" fill="#F4D9DC" />
+        <circle cx="120" cy="66" r="4" fill="#D9A5AE" />
+        <circle cx="140" cy="120" r="5" fill="#F4D9DC" />
+      </svg>
+
+      <svg class="branch branch-br" viewBox="0 0 300 300" fill="none">
+        <path
+          d="M300 280C260 260 230 270 200 240C170 210 180 170 140 150"
+          stroke="#D9A5AE"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M240 255C230 265 215 265 210 250"
+          stroke="#D9A5AE"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M200 225C188 232 178 228 178 215"
+          stroke="#D9A5AE"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <circle cx="245" cy="258" r="6" fill="#F4D9DC" />
+        <circle cx="228" cy="270" r="5" fill="#F4D9DC" />
+        <circle cx="205" cy="228" r="6" fill="#F4D9DC" />
+        <circle cx="180" cy="234" r="4" fill="#D9A5AE" />
+        <circle cx="160" cy="180" r="5" fill="#F4D9DC" />
+      </svg>
+
+      <div class="hero-inner">
+        <p class="greeting reveal">Hi, I'm Mehroof Saba</p>
+        <h1 class="hero-name reveal">Sabielle</h1>
+        <p class="hero-role reveal">Developer · Dreamer · Creator</p>
+        <p class="hero-desc reveal">
+          A short line about what you build and why.
+        </p>
+        <a href="#work" class="hero-cta reveal">explore my work</a>
+      </div>
+
+      <div class="scroll-cue reveal">
+        <span>scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <div class="theme-toggle" tabindex="0" role="button" aria-pressed="false">
+      <span class="toggle-txt">Hover Me</span>
+      <div class="toggle-fill"></div>
+    </div>
+
+    <section class="work" id="work">
+      <div class="sec-head reveal-scroll">
+        <h2>Selected Work</h2>
+        <span class="sec-meta">2024 — 2028</span>
+      </div>
+      <div class="work-grid">
+        <div class="work-card reveal-scroll">
+          <span class="card-tag">Brand Identity</span>
+          <h3 class="card-title">[Project One]</h3>
+          <p class="card-desc">
+            A short line describing this project — what it was, who it was for,
+            what you did.
+          </p>
+        </div>
+
+        <div class="work-card reveal-scroll">
+          <span class="card-tag">Web Design</span>
+          <h3 class="card-title">[Project Two]</h3>
+          <p class="card-desc">
+            A short line describing this project — what it was, who it was for,
+            what you did.
+          </p>
+        </div>
+
+        <div class="work-card reveal-scroll">
+          <span class="card-tag">UI / Development</span>
+          <h3 class="card-title">[Project Three]</h3>
+          <p class="card-desc">
+            A short line describing this project — what it was, who it was for,
+            what you did.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="sec-head reveal-scroll">
+        <h2>About</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text reveal-scroll">
+          <p>
+            [A paragraph about who you are, what you do, and the kind of work
+            you're drawn to. Keep it warm and personal — this is where your
+            voice comes through most directly.]
+          </p>
+          <p>
+            [A second paragraph, maybe about your process, your background, or
+            what led you here.]
+          </p>
+        </div>
+        <div class="skills reveal-scroll">
+          <span class="skill-tag">[Skill One]</span>
+          <span class="skill-tag">[Skill Two]</span>
+          <span class="skill-tag">[Skill Three]</span>
+          <span class="skill-tag">[Skill Four]</span>
+          <span class="skill-tag">[Skill Five]</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="sec-head reveal-scroll">
+        <h2>Experience &amp; Education</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal-scroll">
+          <span class="timeline-date">[2026 — Present]</span>
+          <h3>[Role / Program Title]</h3>
+          <p>
+            [Company or institution name] — a short line about what this
+            involved.
+          </p>
+        </div>
+
+        <div class="timeline-item reveal-scroll">
+          <span class="timeline-date">[2024 — 2026]</span>
+          <h3>[Role / Program Title]</h3>
+          <p>
+            [Company or institution name] — a short line about what this
+            involved.
+          </p>
+        </div>
+
+        <div class="timeline-item reveal-scroll">
+          <span class="timeline-date">[2020 — 2024]</span>
+          <h3>[Degree / Program Title]</h3>
+          <p>[School name] — a short line about what this involved.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="reveal-scroll">
+        <h2>Let's talk</h2>
+        <p class="contact-sub">
+          Have a project in mind? I'd love to hear about it.
+        </p>
+        <a href="mailto:you@example.com" class="contact-email"
+          >you@example.com</a
+        >
+        <div class="socials">
+          <a href="#" target="_blank" rel="noopener">GitHub</a>
+          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2028 Sabielle</span>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
