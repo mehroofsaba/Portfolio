@@ -724,3 +724,19 @@ footer {
     font-size: 9px;
   }
 }
+.crossed-code {
+  position: relative;
+  display: inline-block;
+}
+
+.crossed-code::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -5px;
+  top: 51%;
+  height: 2px;
+  background: currentColor;
+  transform: rotate(-4deg);
+  border-radius: 50%;
+}
