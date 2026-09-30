@@ -5,17 +5,13 @@ const reduceMotion = window.matchMedia(
 ).matches;
 const isSmallScreen = window.innerWidth < 700;
 
-/* =========================================================
-   FALLING PETALS  (Step 5, tuned for performance in Step 11)
-   ========================================================= */
 const canvas = document.getElementById("petal-canvas");
 const ctx = canvas.getContext("2d");
 let width,
   height,
   petals = [];
 
-// Step 11: fewer petals on small/low-power screens
-const PETAL_COUNT = isSmallScreen ? 15 : 30;
+const PETAL_COUNT = isSmallScreen ? 20 : 35;
 
 function getPetalColor() {
   return document.body.classList.contains("theme-dark") ? "#E8A9B4" : "#D9A5AE";
@@ -127,9 +123,9 @@ if (!reduceMotion) {
   canvas.style.display = "none";
 }
 
-/* =========================================================
+/*
    HERO ENTRANCE ANIMATION  (Step 7)
-   ========================================================= */
+   */
 if (!reduceMotion) {
   gsap
     .timeline({ defaults: { ease: "power3.out", duration: 1 } })
@@ -143,9 +139,9 @@ if (!reduceMotion) {
   gsap.set(".reveal", { opacity: 1, y: 0 });
 }
 
-/* =========================================================
+/* 
    SCROLL ANIMATIONS  (Step 9)
-   ========================================================= */
+    */
 if (!reduceMotion) {
   gsap.utils.toArray(".reveal-scroll").forEach((el, i) => {
     gsap.to(el, {
@@ -164,9 +160,9 @@ if (!reduceMotion) {
   gsap.set(".reveal-scroll", { opacity: 1, y: 0 });
 }
 
-/* =========================================================
+/* 
    THEME TOGGLE  (Step 8)
-   ========================================================= */
+   */
 const themeToggle = document.querySelector(".theme-toggle");
 let themeLocked = false;
 
@@ -198,9 +194,9 @@ themeToggle.addEventListener("keydown", (e) => {
   }
 });
 
-/* =========================================================
+/*
    MOBILE NAV  (Step 10)
-   ========================================================= */
+   */
 const navToggle = document.getElementById("navToggle");
 const mainNav = document.getElementById("mainNav");
 
