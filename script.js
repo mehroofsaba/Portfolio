@@ -160,28 +160,163 @@ if (!reduceMotion) {
   gsap.set(".reveal-scroll", { opacity: 1, y: 0 });
 }
 
-/* 
-   THEME TOGGLE  (Step 8)
-   */
+/* =========================================================
+   THEME TOGGLE + HERO PORTRAIT TRANSITION
+========================================================= */
+
 const themeToggle = document.querySelector(".theme-toggle");
+const heroIntro = document.getElementById("heroIntro");
+const heroBio = document.querySelector(".hero-bio");
+
+const bioElements = gsap.utils.toArray(
+  ".hero-bio .bio-name, .hero-bio .bio-line",
+);
+
 let themeLocked = false;
 
-function previewDark() {
-  document.body.classList.add("theme-dark");
+// Initial state
+if (heroBio) {
+  gsap.set(heroBio, {
+    autoAlpha: 0,
+    y: 24,
+  });
+
+  gsap.set(bioElements, {
+    autoAlpha: 0,
+    y: 18,
+  });
+
+  heroBio.inert = true;
+  heroBio.setAttribute("aria-hidden", "true");
 }
+
+function updateHeroPresentation(isDark) {
+  if (!heroIntro || !heroBio) return;
+
+  gsap.killTweensOf([heroIntro, heroBio, bioElements]);
+
+  heroBio.inert = !isDark;
+  heroBio.setAttribute("aria-hidden", String(!isDark));
+  heroIntro.setAttribute("aria-hidden", String(isDark));
+
+  const duration = reduceMotion ? 0 : 0.65;
+
+  if (isDark) {
+    // Both hero states transition together
+    const timeline = gsap.timeline();
+
+    timeline
+      .to(
+        heroIntro,
+        {
+          autoAlpha: 0,
+          filter: "blur(9px)",
+          y: -12,
+          duration,
+          ease: "power2.inOut",
+        },
+        0,
+      )
+      .to(
+        heroBio,
+        {
+          autoAlpha: 1,
+          filter: "blur(0px)",
+          y: 0,
+          duration,
+          ease: "power2.inOut",
+        },
+        0,
+      )
+      .to(
+        bioElements,
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: reduceMotion ? 0 : 0.55,
+          filter: "blur(0px)",
+          stagger: reduceMotion ? 0 : 0.08,
+          ease: "power3.out",
+        },
+        0.18,
+      );
+  } else {
+    // Reverse the transition together
+    const timeline = gsap.timeline();
+
+    timeline
+      .to(
+        [heroIntro, heroBio],
+        {
+          duration: reduceMotion ? 0 : 0.55,
+          ease: "power2.inOut",
+          overwrite: true,
+        },
+        0,
+      )
+      .to(
+        bioElements,
+        {
+          autoAlpha: 0,
+          y: 12,
+          filter: "blur(8px)",
+          duration: reduceMotion ? 0 : 0.25,
+          stagger: 0.025,
+        },
+        0,
+      )
+      .to(
+        heroBio,
+        {
+          autoAlpha: 0,
+          y: 12,
+          filter: "blur(8px)",
+        },
+        0,
+      )
+      .to(
+        heroIntro,
+        {
+          autoAlpha: 1,
+          y: 0,
+          filter: "blur(0px)",
+        },
+        0,
+      );
+  }
+}
+
+function applyTheme(isDark) {
+  document.body.classList.toggle("theme-dark", isDark);
+  updateHeroPresentation(isDark);
+}
+
+function previewDark() {
+  applyTheme(true);
+}
+
 function revertToLight() {
-  if (!themeLocked) document.body.classList.remove("theme-dark");
+  if (!themeLocked) {
+    applyTheme(false);
+  }
 }
 
 themeToggle.addEventListener("mouseenter", previewDark);
 themeToggle.addEventListener("mouseleave", revertToLight);
+
 themeToggle.addEventListener("focus", previewDark);
 themeToggle.addEventListener("blur", revertToLight);
 
 themeToggle.addEventListener("click", () => {
   themeLocked = !themeLocked;
-  document.body.classList.toggle("theme-dark", themeLocked);
+
+  const stillPreviewing =
+    themeToggle.matches(":hover") || document.activeElement === themeToggle;
+
+  applyTheme(themeLocked || stillPreviewing);
+
   themeToggle.setAttribute("aria-pressed", themeLocked);
+
   themeToggle.querySelector(".toggle-txt").textContent = themeLocked
     ? "lock light"
     : "hover me";
@@ -193,44 +328,6 @@ themeToggle.addEventListener("keydown", (e) => {
     themeToggle.click();
   }
 });
-
-/*
-   INTERACTIVE BIOGRAPHY (noir section)
-   */
-/*
-   INTERACTIVE BIOGRAPHY (noir section)
-   */
-const bioSection = document.querySelector(".bio");
-const bioArrowDown = document.getElementById("bioArrowDown");
-const bioArrowUp = document.getElementById("bioArrowUp");
-const bioLines = gsap.utils.toArray(".bio-line");
-
-if (bioSection && bioArrowDown && bioArrowUp) {
-  gsap.set(bioLines, { opacity: 0, y: 14 });
-
-  bioArrowDown.addEventListener("click", () => {
-    bioSection.classList.add("bio-open");
-    gsap.to(bioLines, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: "power2.out",
-      stagger: 0.12,
-      delay: 0.25,
-    });
-  });
-
-  bioArrowUp.addEventListener("click", () => {
-    gsap.to(bioLines, {
-      opacity: 0,
-      y: 10,
-      duration: 0.3,
-      ease: "power1.in",
-      stagger: 0.04,
-    });
-    bioSection.classList.remove("bio-open");
-  });
-}
 
 /*
    MOBILE NAV  (Step 10)

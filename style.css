@@ -814,7 +814,7 @@ nav a:hover::after {
   transform: translateY(-4px);
 }
 .cert-issuer {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--mauve);
@@ -859,15 +859,13 @@ nav a:hover::after {
 .tech-category {
   min-width: 0;
 }
-
 .tech-category h3 {
-  font-family: var(--font-display, serif);
+  font-family: var(--font-serif);
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 35px;
-  color: var(--text-primary, #382c2d);
+  color: var(--ink);
 }
-
 /* Technology icons */
 
 .tech-items {
@@ -1184,7 +1182,7 @@ footer {
   height: 42px;
   object-fit: contain;
   display: block;
-  margin: 0 auto 12px;
+  margin: 0;
   transition:
     transform 0.3s ease,
     filter 0.3s ease;
@@ -1207,4 +1205,335 @@ footer {
 .tech-item img.css3-icon {
   filter: grayscale(1) brightness(1.05) sepia(0.35) saturate(2.8)
     hue-rotate(305deg);
+}
+/* =========================================================
+   SABIELLE — SINGLE HERO / MIDNIGHT SAKURA PORTRAIT
+========================================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Smooth, synchronised transition for the original hero */
+.hero-inner {
+  position: relative;
+  z-index: 3;
+  transition:
+    opacity 0.55s ease,
+    filter 0.55s ease,
+    transform 0.55s ease,
+    visibility 0s linear 0.55s;
+}
+
+/* Hide the original landing content in midnight mode */
+body.theme-dark .hero-inner {
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(8px);
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition:
+    opacity 0.55s ease,
+    filter 0.55s ease,
+    transform 0.55s ease,
+    visibility 0s;
+}
+
+/* Portrait hero — hidden in sakura mode */
+.hero > .hero-bio {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  overflow: hidden;
+  background: transparent;
+
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(8px);
+  transform: translateY(12px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.55s ease,
+    filter 0.55s ease,
+    transform 0.55s ease,
+    visibility 0s linear 0.55s;
+}
+
+/* Reveal portrait in midnight mode */
+body.theme-dark .hero > .hero-bio {
+  opacity: 1;
+  visibility: visible;
+  filter: blur(0);
+  transform: translateY(0);
+  pointer-events: auto;
+
+  transition:
+    opacity 0.55s ease,
+    filter 0.55s ease,
+    transform 0.55s ease,
+    visibility 0s;
+}
+
+/* Original black-background portrait */
+.hero > .hero-bio .bio-portrait {
+  position: absolute;
+  inset: 0;
+
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  /*
+    Preserve the complete portrait instead of cropping
+    the forehead and hair with background-size: cover.
+  */
+  background-size: auto 100%;
+
+  /*
+    Keep the original grayscale details.
+    Avoid screen blending, which can brighten hair edges.
+  */
+  mix-blend-mode: normal;
+  opacity: 0.88;
+
+  filter: grayscale(1) brightness(0.86) contrast(1.04);
+
+  transform: none;
+}
+
+/* Blend the portrait naturally into the midnight background */
+.hero > .hero-bio .bio-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(28, 21, 23, 0.02) 0%,
+      rgba(28, 21, 23, 0.08) 35%,
+      rgba(28, 21, 23, 0.72) 60%,
+      #1c1517 100%
+    ),
+    linear-gradient(0deg, rgba(28, 21, 23, 0.25), transparent 55%);
+}
+
+/* Text positioned on the right */
+.hero > .hero-bio .bio-stage {
+  position: relative;
+  z-index: 2;
+
+  width: 52%;
+  max-width: 760px;
+  height: auto;
+
+  margin-left: auto;
+  padding: 0 7vw 0 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Show name and biography together */
+.hero > .hero-bio .bio-name-state,
+.hero > .hero-bio .bio-text-state {
+  position: relative;
+  inset: auto;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  text-align: left;
+  gap: 14px;
+
+  opacity: 1;
+  visibility: visible;
+  filter: none;
+  transform: none;
+  pointer-events: auto;
+  transition: none;
+}
+
+/* Name */
+.hero > .hero-bio .bio-name {
+  font-size: clamp(48px, 6vw, 88px);
+  line-height: 1.05;
+  color: var(--champagne);
+}
+
+/* Biography */
+.hero > .hero-bio .bio-text-state {
+  gap: 12px;
+}
+
+.hero > .hero-bio .bio-line {
+  max-width: 34ch;
+  font-size: clamp(18px, 2vw, 25px);
+  line-height: 1.55;
+  color: var(--champagne);
+}
+
+.hero > .hero-bio .bio-line.bio-tag {
+  color: var(--dusty);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* Old biography arrows are not needed */
+.hero > .hero-bio .bio-arrow {
+  display: none;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hero > .hero-bio .bio-stage {
+    width: 58%;
+    padding-right: 5vw;
+  }
+
+  .hero > .hero-bio .bio-name {
+    font-size: clamp(44px, 7vw, 72px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .hero > .hero-bio {
+    align-items: flex-end;
+  }
+
+  .hero > .hero-bio .bio-portrait {
+    inset: 0 auto 0 0;
+    width: 65%;
+    height: 100%;
+
+    background-size: auto 100%;
+    background-position: left center;
+
+    mix-blend-mode: normal;
+    opacity: 0.82;
+
+    filter: grayscale(1) brightness(0.82) contrast(1.04);
+  }
+
+  .hero > .hero-bio .bio-scrim {
+    background: linear-gradient(
+      0deg,
+      #1c1517 0%,
+      rgba(28, 21, 23, 0.88) 35%,
+      rgba(28, 21, 23, 0.15) 100%
+    );
+  }
+
+  .hero > .hero-bio .bio-stage {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 8vw 90px;
+  }
+
+  .hero > .hero-bio .bio-name {
+    font-size: clamp(44px, 12vw, 64px);
+  }
+
+  .hero > .hero-bio .bio-line {
+    max-width: 32ch;
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero > .hero-bio,
+  .hero-inner {
+    transition: none !important;
+  }
+}
+/* Midnight Sakura — theme toggle */
+body.theme-dark .theme-toggle {
+  background: #1c1517;
+  border-color: #c9a0a6;
+}
+
+body.theme-dark .theme-toggle .toggle-fill {
+  background: #492832;
+}
+
+body.theme-dark .theme-toggle .toggle-txt {
+  color: #f5e8df;
+}
+
+/* Keep the hover fill burgundy, never sakura pink */
+body.theme-dark .theme-toggle:hover .toggle-fill,
+body.theme-dark .theme-toggle:focus .toggle-fill {
+  background: #492832;
+}
+
+/* =========================================
+   MIDNIGHT SAKURA — SKILLS & TECH PILL POLISH
+========================================= */
+
+/* Center individual technology category headings */
+.tech-category h3 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+/* Keep technology icons and labels centered */
+.tech-items {
+  justify-items: center;
+}
+
+/* Project technology pills — Sakura theme */
+.card-stack span {
+  color: #a87580;
+  background: rgba(217, 165, 174, 0.12);
+  border: 1px solid rgba(217, 165, 174, 0.3);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 11px;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Project technology pills — Midnight Sakura */
+body.theme-dark .card-stack span {
+  color: #e2b8c0;
+  background: rgba(201, 160, 166, 0.12);
+  border-color: rgba(201, 160, 166, 0.28);
+}
+
+/* Subtle hover effect */
+.card-stack span:hover {
+  background: rgba(217, 165, 174, 0.22);
+  border-color: #d9a5ae;
+  transform: translateY(-2px);
+}
+
+body.theme-dark .card-stack span:hover {
+  color: #f5e8df;
+  background: rgba(201, 160, 166, 0.24);
+  border-color: #c9a0a6;
 }

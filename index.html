@@ -22,7 +22,6 @@
       <nav id="mainNav">
         <a href="#work">Work</a>
         <a href="#about">About</a>
-        <a href="#bio">Bio</a>
         <a href="#milestones">Milestones</a>
         <a href="#certifications">Certifications</a>
         <a href="#skills">Skills</a>
@@ -84,16 +83,49 @@
         <circle cx="160" cy="180" r="5" fill="#F4D9DC" />
       </svg>
 
-      <div class="hero-inner">
+      <div class="hero-inner" id="heroIntro">
         <p class="greeting reveal">Hi, I'm</p>
         <h1 class="hero-name reveal">Mehroof Saba</h1>
+
         <p class="hero-role reveal">
           Come vibe <span class="crossed-code">Code</span> with me.
         </p>
+
         <p class="hero-desc reveal">
           I like turning ideas into things you can actually use and explore.
         </p>
-        <a href="#work" class="hero-cta reveal">Come see my "STUFFs"</a>
+
+        <a href="#work" class="hero-cta reveal"> Come see my "STUFFs" </a>
+      </div>
+
+      <!-- Midnight sakura portrait + biography -->
+      <div class="bio hero-bio" id="bio" aria-hidden="true" inert>
+        <div
+          class="bio-portrait"
+          style="background-image: url(&quot;assets/portrait.jpg&quot;)"
+          aria-hidden="true"
+        ></div>
+
+        <div class="bio-scrim"></div>
+
+        <div class="bio-stage">
+          <div class="bio-name-state">
+            <h2 class="bio-name">Mehroof Saba</h2>
+          </div>
+
+          <div class="bio-text-state">
+            <p class="bio-line">
+              One minute I'm fixing a bug, the next I'm the bug.
+            </p>
+
+            <p class="bio-line">
+              And somewhere in that mess, I've started one more project because
+              why do one thing when I can do everything?
+            </p>
+
+            <p class="bio-line bio-tag">apparently, the bugs fix me.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -101,62 +133,6 @@
       <span class="toggle-txt">Hover Me</span>
       <div class="toggle-fill"></div>
     </div>
-
-    <!-- ================= INTERACTIVE BIOGRAPHY (noir) ================= -->
-    <section class="bio" id="bio">
-      <div
-        class="bio-portrait"
-        style="background-image: url(&quot;assets/portrait.jpg&quot;)"
-      ></div>
-      <div class="bio-scrim"></div>
-
-      <div class="bio-stage">
-        <div class="bio-name-state" id="bioNameState">
-          <h2 class="bio-name">Mehroof Saba</h2>
-          <button
-            class="bio-arrow bio-arrow-down"
-            id="bioArrowDown"
-            aria-label="Reveal biography"
-          >
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-              <path
-                d="M12 4v16M12 20l-6-6M12 20l6-6"
-                stroke="currentColor"
-                stroke-width="1.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <div class="bio-text-state" id="bioTextState">
-          <button
-            class="bio-arrow bio-arrow-up"
-            id="bioArrowUp"
-            aria-label="Close biography"
-          >
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-              <path
-                d="M12 20V4M12 4l-6 6M12 4l6 6"
-                stroke="currentColor"
-                stroke-width="1.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-          <p class="bio-line">
-            One minute I'm fixing a bug, the next I'm the bug.
-          </p>
-          <p class="bio-line">
-            And somewhere in that mess, I've started one more project because
-            why do one thing when I can do everything?
-          </p>
-          <p class="bio-line bio-tag">apparently, the bugs fix me.</p>
-        </div>
-      </div>
-    </section>
 
     <!-- ================= SELECTED WORK ================= -->
     <section class="work" id="work">
@@ -410,7 +386,8 @@
           <span class="skill-tag">Game Development</span>
           <span class="skill-tag">Exploring New Tech</span>
           <span class="skill-tag">Reading</span>
-          <span class="skill-tag">Cafes &amp; Travelling</span>
+          <span class="skill-tag">Cafes</span>
+          <span class="skill-tag">Travelling</span>
         </div>
       </div>
     </section>
@@ -488,16 +465,16 @@
       </div>
       <div class="cert-grid reveal-scroll">
         <div class="cert-card">
-          <span class="cert-issuer">Udemy</span>
-          <h3>Python</h3>
+          <span class="cert-issuer">Udemy - </span>
+          <span class="cert-value">Python Skills From basic to Advanced</span>
         </div>
         <div class="cert-card">
-          <span class="cert-issuer">NPTEL</span>
-          <h3>Java</h3>
+          <span class="cert-issuer">NPTEL - </span>
+          <span class="cert-value">Fundamentals of Java Programming</span>
         </div>
         <div class="cert-card">
-          <span class="cert-issuer">NPTEL</span>
-          <h3>Principles of Management</h3>
+          <span class="cert-issuer">NPTEL - </span>
+          <span class="cert-value">Principles of Management</span>
         </div>
       </div>
     </section>
