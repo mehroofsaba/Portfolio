@@ -372,8 +372,16 @@ nav a:hover::after {
   background: transparent;
   transition: background 0.4s ease;
   will-change: opacity, visibility;
+  transition:
+    opacity 0.15s ease,
+    visibility 0.15s ease;
 }
-
+.theme-toggle.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: none;
+}
 .toggle-txt {
   position: relative;
   z-index: 2;

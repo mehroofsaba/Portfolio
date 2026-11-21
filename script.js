@@ -165,58 +165,20 @@ if (!reduceMotion) {
 ========================================================= */
 
 const themeToggle = document.querySelector(".theme-toggle");
-// Show the theme toggle only while the hero is in view
-if (themeToggle) {
-  gsap.set(themeToggle, {
-    autoAlpha: 1,
-    pointerEvents: "auto",
-  });
+// Keep the theme toggle visible only while the hero is on screen
+const heroSection = document.querySelector(".hero");
 
-  ScrollTrigger.create({
-    trigger: ".hero",
-    start: "top top",
-    end: "bottom top",
-    onEnter: () => {
-      gsap.to(themeToggle, {
-        autoAlpha: 1,
-        duration: 0.35,
-        ease: "power2.out",
-        onStart: () => {
-          themeToggle.style.pointerEvents = "auto";
-        },
-      });
+if (themeToggle && heroSection) {
+  const heroObserver = new IntersectionObserver(
+    ([entry]) => {
+      themeToggle.classList.toggle("is-hidden", !entry.isIntersecting);
     },
-    onLeave: () => {
-      gsap.to(themeToggle, {
-        autoAlpha: 0,
-        duration: 0.3,
-        ease: "power2.out",
-        onComplete: () => {
-          themeToggle.style.pointerEvents = "none";
-        },
-      });
+    {
+      threshold: 0,
     },
-    onEnterBack: () => {
-      gsap.to(themeToggle, {
-        autoAlpha: 1,
-        duration: 0.35,
-        ease: "power2.out",
-        onStart: () => {
-          themeToggle.style.pointerEvents = "auto";
-        },
-      });
-    },
-    onLeaveBack: () => {
-      gsap.to(themeToggle, {
-        autoAlpha: 0,
-        duration: 0.3,
-        ease: "power2.out",
-        onComplete: () => {
-          themeToggle.style.pointerEvents = "none";
-        },
-      });
-    },
-  });
+  );
+
+  heroObserver.observe(heroSection);
 }
 const heroIntro = document.getElementById("heroIntro");
 const heroBio = document.querySelector(".hero-bio");
