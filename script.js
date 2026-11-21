@@ -165,21 +165,20 @@ if (!reduceMotion) {
 ========================================================= */
 
 const themeToggle = document.querySelector(".theme-toggle");
-// Keep the theme toggle visible only while the hero is on screen
-const heroSection = document.querySelector(".hero");
-
-if (themeToggle && heroSection) {
-  const heroObserver = new IntersectionObserver(
-    ([entry]) => {
-      themeToggle.classList.toggle("is-hidden", !entry.isIntersecting);
+// Hide the theme toggle as soon as scrolling begins
+if (themeToggle) {
+  window.addEventListener(
+    "scroll",
+    () => {
+      themeToggle.classList.toggle("is-hidden", window.scrollY > 10);
     },
-    {
-      threshold: 0,
-    },
+    { passive: true },
   );
 
-  heroObserver.observe(heroSection);
+  // Set the correct initial state
+  themeToggle.classList.toggle("is-hidden", window.scrollY > 10);
 }
+
 const heroIntro = document.getElementById("heroIntro");
 const heroBio = document.querySelector(".hero-bio");
 
