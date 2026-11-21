@@ -1291,43 +1291,30 @@ body.theme-dark .hero > .hero-bio {
 .hero > .hero-bio .bio-portrait {
   position: absolute;
   inset: 0;
+  z-index: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+  pointer-events: none;
+  background: none;
+}
 
-  background-repeat: no-repeat;
-  background-position: left center;
-
-  /*
-    Preserve the complete portrait instead of cropping
-    the forehead and hair with background-size: cover.
-  */
-  background-size: auto 100%;
-
-  /*
-    Keep the original grayscale details.
-    Avoid screen blending, which can brighten hair edges.
-  */
-  mix-blend-mode: normal;
-  opacity: 0.88;
-
-  filter: grayscale(1) brightness(0.86) contrast(1.04);
-
-  transform: none;
+.hero > .hero-bio .portrait-image {
+  display: block;
+  width: auto;
+  height: min(92vh, 900px);
+  max-width: 58%;
+  object-fit: contain;
+  object-position: left bottom;
+  filter: grayscale(0.08) contrast(1.03);
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* Blend the portrait naturally into the midnight background */
 .hero > .hero-bio .bio-scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(28, 21, 23, 0.02) 0%,
-      rgba(28, 21, 23, 0.08) 35%,
-      rgba(28, 21, 23, 0.72) 60%,
-      #1c1517 100%
-    ),
-    linear-gradient(0deg, rgba(28, 21, 23, 0.25), transparent 55%);
+  display: none;
 }
 
 /* Text positioned on the right */
@@ -1420,19 +1407,15 @@ body.theme-dark .hero > .hero-bio {
   .hero > .hero-bio {
     align-items: flex-end;
   }
-
   .hero > .hero-bio .bio-portrait {
-    inset: 0 auto 0 0;
-    width: 65%;
-    height: 100%;
+    align-items: flex-end;
+    justify-content: center;
+  }
 
-    background-size: auto 100%;
-    background-position: left center;
-
-    mix-blend-mode: normal;
-    opacity: 0.82;
-
-    filter: grayscale(1) brightness(0.82) contrast(1.04);
+  .hero > .hero-bio .portrait-image {
+    height: min(62vh, 560px);
+    max-width: 88%;
+    object-position: center bottom;
   }
 
   .hero > .hero-bio .bio-scrim {
