@@ -291,11 +291,13 @@ function applyTheme(isDark) {
 }
 
 function previewDark() {
-  applyTheme(true);
+  if (!document.body.classList.contains("theme-dark")) {
+    applyTheme(true);
+  }
 }
 
 function revertToLight() {
-  if (!themeLocked) {
+  if (!themeLocked && document.body.classList.contains("theme-dark")) {
     applyTheme(false);
   }
 }
