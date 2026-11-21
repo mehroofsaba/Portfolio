@@ -11,7 +11,7 @@ let width,
   height,
   petals = [];
 
-const PETAL_COUNT = isSmallScreen ? 20 : 35;
+const PETAL_COUNT = isSmallScreen ? 17 : 30;
 
 function getPetalColor() {
   return document.body.classList.contains("theme-dark") ? "#E8A9B4" : "#D9A5AE";
@@ -31,8 +31,8 @@ class Petal {
     this.x = Math.random() * width;
     this.y = randomStartY ? Math.random() * height : -20;
     this.size = Math.random() * 6 + 4;
-    this.speedY = Math.random() * 0.5 + 0.2;
-    this.speedX = Math.random() * 0.3 - 0.15;
+    this.speedY = Math.random() * 0.4 + 0.15;
+    this.speedX = Math.random() * 0.2 - 0.1;
     this.rotation = Math.random() * Math.PI * 2;
     this.rotationSpeed = (Math.random() - 0.5) * 0.015;
     this.opacity = Math.random() * 0.35 + 0.15;
@@ -44,7 +44,7 @@ class Petal {
     this.y += this.speedY;
     this.x +=
       this.speedX +
-      Math.sin(time * 0.001 + this.swayOffset) * this.swayAmount * 0.05;
+      Math.sin(time * 0.01 + this.swayOffset) * this.swayAmount * 0.1;
     this.rotation += this.rotationSpeed;
     if (this.y > height + 20) this.reset();
   }
@@ -193,6 +193,44 @@ themeToggle.addEventListener("keydown", (e) => {
     themeToggle.click();
   }
 });
+
+/*
+   INTERACTIVE BIOGRAPHY (noir section)
+   */
+/*
+   INTERACTIVE BIOGRAPHY (noir section)
+   */
+const bioSection = document.querySelector(".bio");
+const bioArrowDown = document.getElementById("bioArrowDown");
+const bioArrowUp = document.getElementById("bioArrowUp");
+const bioLines = gsap.utils.toArray(".bio-line");
+
+if (bioSection && bioArrowDown && bioArrowUp) {
+  gsap.set(bioLines, { opacity: 0, y: 14 });
+
+  bioArrowDown.addEventListener("click", () => {
+    bioSection.classList.add("bio-open");
+    gsap.to(bioLines, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      stagger: 0.12,
+      delay: 0.25,
+    });
+  });
+
+  bioArrowUp.addEventListener("click", () => {
+    gsap.to(bioLines, {
+      opacity: 0,
+      y: 10,
+      duration: 0.3,
+      ease: "power1.in",
+      stagger: 0.04,
+    });
+    bioSection.classList.remove("bio-open");
+  });
+}
 
 /*
    MOBILE NAV  (Step 10)

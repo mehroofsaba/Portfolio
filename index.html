@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sabielle Portfolio</title>
+    <title>Sabielle - Mehroof Saba</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -22,12 +22,15 @@
       <nav id="mainNav">
         <a href="#work">Work</a>
         <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a href="#bio">Bio</a>
+        <a href="#milestones">Milestones</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#skills">Skills</a>
         <a href="#contact" class="nav-cta">Come say Hi</a>
       </nav>
     </header>
 
+    <!-- ================= HERO (unchanged structure) ================= -->
     <section class="hero" id="hero">
       <svg class="branch branch-tl" viewBox="0 0 300 300" fill="none">
         <path
@@ -82,8 +85,8 @@
       </svg>
 
       <div class="hero-inner">
-        <p class="greeting reveal">Hi, I'm Mehroof Saba</p>
-        <h1 class="hero-name reveal">Sabielle</h1>
+        <p class="greeting reveal">Hi, I'm</p>
+        <h1 class="hero-name reveal">Mehroof Saba</h1>
         <p class="hero-role reveal">
           Come vibe <span class="crossed-code">Code</span> with me.
         </p>
@@ -92,11 +95,6 @@
         </p>
         <a href="#work" class="hero-cta reveal">Come see my "STUFFs"</a>
       </div>
-
-      <div class="scroll-cue reveal">
-        <span>scroll</span>
-        <div class="scroll-line"></div>
-      </div>
     </section>
 
     <div class="theme-toggle" tabindex="0" role="button" aria-pressed="false">
@@ -104,41 +102,288 @@
       <div class="toggle-fill"></div>
     </div>
 
-    <section class="work" id="work">
-      <div class="sec-head reveal-scroll">
-        <h2>Selected Work</h2>
-        <span class="sec-meta">2024 — 2028</span>
-      </div>
-      <div class="work-grid">
-        <div class="work-card reveal-scroll">
-          <span class="card-tag">Brand Identity</span>
-          <h3 class="card-title">[Project One]</h3>
-          <p class="card-desc">
-            A short line describing this project — what it was, who it was for,
-            what you did.
-          </p>
+    <!-- ================= INTERACTIVE BIOGRAPHY (noir) ================= -->
+    <section class="bio" id="bio">
+      <div
+        class="bio-portrait"
+        style="background-image: url(&quot;assets/portrait.jpg&quot;)"
+      ></div>
+      <div class="bio-scrim"></div>
+
+      <div class="bio-stage">
+        <div class="bio-name-state" id="bioNameState">
+          <h2 class="bio-name">Mehroof Saba</h2>
+          <button
+            class="bio-arrow bio-arrow-down"
+            id="bioArrowDown"
+            aria-label="Reveal biography"
+          >
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+              <path
+                d="M12 4v16M12 20l-6-6M12 20l6-6"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
         </div>
 
-        <div class="work-card reveal-scroll">
-          <span class="card-tag">Web Design</span>
-          <h3 class="card-title">[Project Two]</h3>
-          <p class="card-desc">
-            A short line describing this project — what it was, who it was for,
-            what you did.
+        <div class="bio-text-state" id="bioTextState">
+          <button
+            class="bio-arrow bio-arrow-up"
+            id="bioArrowUp"
+            aria-label="Close biography"
+          >
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+              <path
+                d="M12 20V4M12 4l-6 6M12 4l6 6"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <p class="bio-line">
+            One minute I'm fixing a bug, the next I'm the bug.
           </p>
-        </div>
-
-        <div class="work-card reveal-scroll">
-          <span class="card-tag">UI / Development</span>
-          <h3 class="card-title">[Project Three]</h3>
-          <p class="card-desc">
-            A short line describing this project — what it was, who it was for,
-            what you did.
+          <p class="bio-line">
+            And somewhere in that mess, I've started one more project because
+            why do one thing when I can do everything?
           </p>
+          <p class="bio-line bio-tag">apparently, the bugs fix me.</p>
         </div>
       </div>
     </section>
 
+    <!-- ================= SELECTED WORK ================= -->
+    <section class="work" id="work">
+      <div class="sec-head reveal-scroll">
+        <h2>Selected Work</h2>
+        <span class="sec-meta">Hacktoberfest 2026 &amp; beyond</span>
+      </div>
+      <div class="work-grid">
+        <div class="work-card featured reveal-scroll">
+          <span class="card-tag">In Progress</span>
+          <h3 class="card-title">Oneiric</h3>
+          <p class="card-desc">
+            A personal journaling space designed as a secret chamber for
+            thoughts, emotions and memories-entries, favourites, a trash you can
+            dig through, mood history, and image uploads.
+          </p>
+          <div class="card-stack">
+            <span>Spring Boot</span><span>MySQL</span><span>Java</span>
+          </div>
+          <div class="card-links">
+            <a
+              href="https://github.com/mehroofsaba/Oneiric"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+              >GitHub Repository</a
+            >
+          </div>
+        </div>
+
+        <div class="work-card reveal-scroll">
+          <span class="card-tag">AI Study Companion</span>
+          <h3 class="card-title">Floof</h3>
+          <p class="card-desc">
+            A tiny academic best friend designed to make studying feel less
+            overwhelming. Floof helps students organize tasks, plan realistic
+            study sessions and stay on track, with Gemma-powered AI handling the
+            conversations behind the scenes.
+          </p>
+          <div class="card-stack">
+            <span>React</span>
+            <span>Vite</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>SQLite</span>
+            <span>JWT</span>
+            <span>Gemma AI</span>
+          </div>
+          <div class="card-links">
+            <a
+              href="https://floof-8z0k.onrender.com"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+            >
+              Live Demo
+            </a>
+            <a
+              href="https://github.com/mehroofsaba/Floof"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="work-card reveal-scroll">
+          <span class="card-tag">Hacktoberfest 2026</span>
+          <h3 class="card-title">Digital Herbarium</h3>
+          <p class="card-desc">
+            An illustrated digital field guide to fictional botanical species-
+            their appearances, habitats and stories, with a conservatory to
+            explore and botanical records to create.
+          </p>
+          <div class="card-stack"><span>React</span><span>Vite</span></div>
+          <div class="card-links">
+            <a
+              href="https://digital-herbarium-vsth.onrender.com"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+              >Live Demo</a
+            >
+            <a
+              href="https://github.com/mehroofsaba/Digital-Herbarium"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+              >GitHub</a
+            >
+          </div>
+        </div>
+
+        <div class="work-card reveal-scroll">
+          <span class="card-tag">Hacktoberfest 2026</span>
+          <h3 class="card-title">Bizcuits</h3>
+          <p class="card-desc">
+            An AI-assisted business workspace helping independent creators and
+            small sellers manage products, sales, marketing content, customer
+            responses and everyday tasks.
+          </p>
+          <div class="card-stack">
+            <span>React</span><span>Vite</span><span>Flask</span
+            ><span>Pandas</span><span>PostgreSQL</span><span>Gemma 3</span>
+          </div>
+          <div class="card-links">
+            <a
+              href="https://bizcuits.onrender.com"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+            >
+              Live Demo
+            </a>
+            <a
+              href="https://github.com/mehroofsaba/Bizcuits"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="work-card reveal-scroll">
+          <span class="card-tag">Hacktoberfest 2026</span>
+          <h3 class="card-title">AfterHours</h3>
+          <p class="card-desc">
+            A private digital archive for memories, unfinished thoughts and
+            unsent letters-Memory Cabinet, Lost &amp; Found and Unsent Archive,
+            with an optional locally-running language model.
+          </p>
+          <div class="card-stack">
+            <span>React</span><span>Vite</span><span>Tailwind</span
+            ><span>Motion</span><span>IndexedDB</span
+            ><span>Transformers.js</span>
+          </div>
+          <div class="card-links">
+            <a
+              href="https://afterhours-cszu.onrender.com"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+            >
+              Live Demo
+            </a>
+            <a
+              href="https://github.com/mehroofsaba/AfterHours"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="work-card reveal-scroll">
+          <span class="card-tag">Hacktoberfest 2026</span>
+          <h3 class="card-title">Slothy</h3>
+          <p class="card-desc">
+            A productivity companion for people who have too many mental tabs
+            open-Brain Dump, Lazy Librarian, Bedtime Brain, Folder Fairy, Lil
+            Sloth and Reply Later.
+          </p>
+          <div class="card-stack">
+            <span>React</span><span>Vite</span><span>Tailwind</span
+            ><span>Motion</span><span>Flask</span><span>Gemini API</span>
+          </div>
+          <div class="card-links">
+            <a
+              href="https://slothy-3p2b.onrender.com"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+            >
+              Live Demo
+            </a>
+            <a
+              href="https://github.com/mehroofsaba/Slothy"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="work-card reveal-scroll">
+          <span class="card-tag">Hacktoberfest 2026</span>
+          <h3 class="card-title">Detour</h3>
+          <p class="card-desc">
+            An AI-powered adventure engine that suggests small real-world
+            missions based on your available time, mood, company and surrounding
+            conditions. The screen isn't the destination-the adventure is.
+          </p>
+          <div class="card-stack">
+            <span>HTML/CSS/JS</span><span>Flask</span><span>SQLite</span
+            ><span>Gemma via Ollama</span>
+          </div>
+          <div class="card-links">
+            <a
+              href="https://detour-xqfa.onrender.com"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+            >
+              Live Demo
+            </a>
+            <a
+              href="https://github.com/mehroofsaba/Detour"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
     <section class="about" id="about">
       <div class="sec-head reveal-scroll">
         <h2>About</h2>
@@ -146,72 +391,318 @@
       <div class="about-content">
         <div class="about-text reveal-scroll">
           <p>
-            [A paragraph about who you are, what you do, and the kind of work
-            you're drawn to. Keep it warm and personal — this is where your
-            voice comes through most directly.]
+            I like making things, mostly software. Somewhere between frontend
+            development, UI/UX and the odd game jam idea, I find the part of
+            building where an idea stops being an idea and becomes something you
+            can actually click on.
           </p>
           <p>
-            [A second paragraph, maybe about your process, your background, or
-            what led you here.]
+            I'm drawn to exploring new technologies mostly out of curiosity, not
+            obligations half my projects start because a tool looked fun to try.
+            When I'm not at a screen, I'm probably at a cafe, travelling
+            somewhere small, or reading something I'll bring up uninvited in
+            conversation.
           </p>
         </div>
         <div class="skills reveal-scroll">
-          <span class="skill-tag">[Skill One]</span>
-          <span class="skill-tag">[Skill Two]</span>
-          <span class="skill-tag">[Skill Three]</span>
-          <span class="skill-tag">[Skill Four]</span>
-          <span class="skill-tag">[Skill Five]</span>
+          <span class="skill-tag">Frontend Development</span>
+          <span class="skill-tag">UI / UX Design</span>
+          <span class="skill-tag">Game Development</span>
+          <span class="skill-tag">Exploring New Tech</span>
+          <span class="skill-tag">Reading</span>
+          <span class="skill-tag">Cafes &amp; Travelling</span>
         </div>
       </div>
     </section>
 
-    <section class="experience" id="experience">
+    <!-- ================= EDUCATION ================= -->
+    <section class="education" id="education">
       <div class="sec-head reveal-scroll">
-        <h2>Experience &amp; Education</h2>
+        <h2>Education</h2>
+      </div>
+      <div class="edu-grid reveal-scroll">
+        <div class="edu-item">
+          <span class="edu-label">Degree - </span
+          ><span class="edu-value">B.Tech</span>
+        </div>
+        <div class="edu-item">
+          <span class="edu-label">Branch - </span
+          ><span class="edu-value">Computer Science &amp; Engineering</span>
+        </div>
+        <div class="edu-item">
+          <span class="edu-label">Academic Year - </span
+          ><span class="edu-value">3rd Year</span>
+        </div>
+        <div class="edu-item">
+          <span class="edu-label">Semester - 5th Semester</span
+          ><span class="edu-value">5th Semester</span>
+        </div>
+        <div class="edu-item">
+          <span class="edu-label">Expected Graduation - </span
+          ><span class="edu-value">2028</span>
+        </div>
+        <div class="edu-item">
+          <span class="edu-label">Area of Interest - </span
+          ><span class="edu-value">Frontend Development</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MILESTONES ================= -->
+    <section class="experience" id="milestones">
+      <div class="sec-head reveal-scroll">
+        <h2>Milestones &amp; Achievements</h2>
       </div>
       <div class="timeline">
         <div class="timeline-item reveal-scroll">
-          <span class="timeline-date">[2026 — Present]</span>
-          <h3>[Role / Program Title]</h3>
+          <span class="timeline-date">2026</span>
+          <h3>Hacktoberfest 2026</h3>
           <p>
-            [Company or institution name] — a short line about what this
-            involved.
+            Participated in and completed Hacktoberfest 2026, building five
+            projects - Floof, Digital Herbarium, Bizcuits, AfterHours, Slothy
+            and Detour.
           </p>
         </div>
 
         <div class="timeline-item reveal-scroll">
-          <span class="timeline-date">[2024 — 2026]</span>
-          <h3>[Role / Program Title]</h3>
-          <p>
-            [Company or institution name] — a short line about what this
-            involved.
-          </p>
+          <span class="timeline-date">2026</span>
+          <h3>Smart India Hackathon (SIH)</h3>
+          <p>Participated in SIH and reached the college finalist stage.</p>
         </div>
 
         <div class="timeline-item reveal-scroll">
-          <span class="timeline-date">[2020 — 2024]</span>
-          <h3>[Degree / Program Title]</h3>
-          <p>[School name] — a short line about what this involved.</p>
+          <span class="timeline-date">2026</span>
+          <h3>Research Project - Spam Message Detection</h3>
+          <p>
+            Completed and submitted a college research project on spam message
+            detection. <em>Submitted · further development planned.</em>
+          </p>
         </div>
       </div>
     </section>
 
+    <!-- ================= CERTIFICATIONS ================= -->
+    <section class="certs" id="certifications">
+      <div class="sec-head reveal-scroll">
+        <h2>Certifications</h2>
+      </div>
+      <div class="cert-grid reveal-scroll">
+        <div class="cert-card">
+          <span class="cert-issuer">Udemy</span>
+          <h3>Python</h3>
+        </div>
+        <div class="cert-card">
+          <span class="cert-issuer">NPTEL</span>
+          <h3>Java</h3>
+        </div>
+        <div class="cert-card">
+          <span class="cert-issuer">NPTEL</span>
+          <h3>Principles of Management</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+
+    <section class="skills-section" id="skills">
+      <div class="skills-heading">
+        <h2>Skills</h2>
+      </div>
+
+      <div class="tech-skills-grid">
+        <!-- FRONTEND -->
+        <div class="tech-category reveal-scroll">
+          <h3>Frontend</h3>
+          <div class="tech-items">
+            <div class="tech-item">
+              <img src="https://cdn.simpleicons.org/html5/D98F9C" alt="HTML5" />
+              <span>HTML5</span>
+            </div>
+
+            <div class="tech-item">
+              <svg
+                viewBox="0 0 24 24"
+                width="42"
+                height="42"
+                fill="#D98F9C"
+                aria-label="CSS3"
+                style="display: block; margin: 0 auto 12px"
+              >
+                <path
+                  d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"
+                />
+              </svg>
+              <span>CSS3</span>
+            </div>
+
+            <div class="tech-item">
+              <img
+                src="https://cdn.simpleicons.org/javascript/D98F9C"
+                alt="JavaScript"
+              />
+              <span>JavaScript</span>
+            </div>
+
+            <div class="tech-item">
+              <img src="https://cdn.simpleicons.org/react/D98F9C" alt="React" />
+              <span>React</span>
+            </div>
+
+            <div class="tech-item">
+              <img src="https://cdn.simpleicons.org/vite/D98F9C" alt="Vite" />
+              <span>Vite</span>
+            </div>
+
+            <div class="tech-item">
+              <img
+                src="https://cdn.simpleicons.org/tailwindcss/D98F9C"
+                alt="Tailwind CSS"
+              />
+              <span>Tailwind CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BACKEND -->
+        <div class="tech-category reveal-scroll">
+          <h3>Backend</h3>
+          <div class="tech-items">
+            <div class="tech-item">
+              <img
+                src="https://cdn.simpleicons.org/openjdk/C77D91"
+                alt="Java"
+              />
+              <span>Java</span>
+            </div>
+
+            <div class="tech-item">
+              <img
+                src="https://cdn.simpleicons.org/springboot/C77D91"
+                alt="Spring Boot"
+              />
+              <span>Spring Boot</span>
+            </div>
+
+            <div class="tech-item">
+              <img
+                src="https://cdn.simpleicons.org/python/C77D91"
+                alt="Python"
+              />
+              <span>Python</span>
+            </div>
+
+            <div class="tech-item">
+              <img src="https://cdn.simpleicons.org/flask/C77D91" alt="Flask" />
+              <span>Flask</span>
+            </div>
+
+            <div class="tech-item">
+              <img
+                src="https://cdn.simpleicons.org/nodedotjs/C77D91"
+                alt="Node.js"
+              />
+              <span>Node.js</span>
+            </div>
+
+            <div class="tech-item">
+              <img
+                src="https://cdn.simpleicons.org/express/C77D91"
+                alt="Express"
+              />
+              <span>Express</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DATABASES -->
+        <div class="tech-category reveal-scroll">
+          <h3>Databases</h3>
+          <div class="tech-items">
+            <div class="tech-item">
+              <img src="https://cdn.simpleicons.org/mysql/B87586" alt="MySQL" />
+              <span>MySQL</span>
+            </div>
+
+            <div class="tech-item">
+              <img
+                src="https://cdn.simpleicons.org/postgresql/B87586"
+                alt="PostgreSQL"
+              />
+              <span>PostgreSQL</span>
+            </div>
+
+            <div class="tech-item">
+              <img
+                src="https://cdn.simpleicons.org/sqlite/B87586"
+                alt="SQLite"
+              />
+              <span>SQLite</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOLS -->
+        <div class="tech-category reveal-scroll">
+          <h3>Tools</h3>
+          <div class="tech-items">
+            <div class="tech-item">
+              <img src="https://cdn.simpleicons.org/git/A85F78" alt="Git" />
+              <span>Git</span>
+            </div>
+
+            <div class="tech-item">
+              <img
+                src="https://cdn.simpleicons.org/github/A85F78"
+                alt="GitHub"
+              />
+              <span>GitHub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
     <section class="contact" id="contact">
       <div class="reveal-scroll">
-        <h2>Come say Hi</h2>
-        <p class="contact-sub">Wanna cook something weird?</p>
-        <a href="mailto:you@example.com" class="contact-email"
-          >you@example.com</a
+        <p>wanna cook something weird?</p>
+        <p class="contact-sub">Contact to Know ME more!</p>
+        <a href="mailto:mehroofsaba2@gmail.com" class="contact-email"
+          >mehroofsaba2@gmail.com</a
         >
         <div class="socials">
-          <a href="#" target="_blank" rel="noopener">GitHub</a>
-          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+          <a
+            href="https://github.com/mehroofsaba"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/mehroof-saba-295484329/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+          <a
+            href="https://www.instagram.com/ms_37ann?dmpr=dWFrNGpmdms3aWFz"
+            target="_blank"
+            rel="noopener"
+            >Instagram</a
+          >
+          <a
+            href="https://leetcode.com/u/MEHroof/"
+            target="_blank"
+            rel="noopener"
+            >Leetcode</a
+          >
+          <!-- Resume link: add here once provided, e.g. <a href="resume.pdf" target="_blank">Resume</a> -->
         </div>
       </div>
     </section>
 
     <footer>
-      <span>© 2026 Sabielle</span>
+      <span class="footer-logo">Mehroof Saba</span>
+      <span>© 2026 Mehroof Saba. All rights reserved.</span>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
