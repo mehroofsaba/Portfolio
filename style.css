@@ -1220,25 +1220,6 @@ footer {
 .hero-inner {
   position: relative;
   z-index: 3;
-  transition:
-    opacity 0.55s ease,
-    filter 0.55s ease,
-    transform 0.55s ease,
-    visibility 0s linear 0.55s;
-}
-
-/* Hide the original landing content in midnight mode */
-body.theme-dark .hero-inner {
-  opacity: 0;
-  visibility: hidden;
-  filter: blur(8px);
-  transform: translateY(-8px);
-  pointer-events: none;
-  transition:
-    opacity 0.55s ease,
-    filter 0.55s ease,
-    transform 0.55s ease,
-    visibility 0s;
 }
 
 /* Portrait hero — hidden in sakura mode */
@@ -1258,33 +1239,6 @@ body.theme-dark .hero-inner {
 
   overflow: hidden;
   background: transparent;
-
-  opacity: 0;
-  visibility: hidden;
-  filter: blur(8px);
-  transform: translateY(12px);
-  pointer-events: none;
-
-  transition:
-    opacity 0.55s ease,
-    filter 0.55s ease,
-    transform 0.55s ease,
-    visibility 0s linear 0.55s;
-}
-
-/* Reveal portrait in midnight mode */
-body.theme-dark .hero > .hero-bio {
-  opacity: 1;
-  visibility: visible;
-  filter: blur(0);
-  transform: translateY(0);
-  pointer-events: auto;
-
-  transition:
-    opacity 0.55s ease,
-    filter 0.55s ease,
-    transform 0.55s ease,
-    visibility 0s;
 }
 
 /* Original black-background portrait */
@@ -1442,32 +1396,6 @@ body.theme-dark .hero > .hero-bio {
     max-width: 32ch;
     font-size: 18px;
   }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero > .hero-bio,
-  .hero-inner {
-    transition: none !important;
-  }
-}
-/* Midnight Sakura — theme toggle */
-body.theme-dark .theme-toggle {
-  background: #1c1517;
-  border-color: #c9a0a6;
-}
-
-body.theme-dark .theme-toggle .toggle-fill {
-  background: #492832;
-}
-
-body.theme-dark .theme-toggle .toggle-txt {
-  color: #f5e8df;
-}
-
-/* Keep the hover fill burgundy, never sakura pink */
-body.theme-dark .theme-toggle:hover .toggle-fill,
-body.theme-dark .theme-toggle:focus .toggle-fill {
-  background: #492832;
 }
 
 /* =========================================

@@ -173,17 +173,20 @@ const bioElements = gsap.utils.toArray(
 );
 
 let themeLocked = false;
+let heroTimeline = null;
 
 // Initial state
 if (heroBio) {
   gsap.set(heroBio, {
     autoAlpha: 0,
-    y: 24,
+    y: 18,
+    filter: "blur(5px)",
   });
 
   gsap.set(bioElements, {
     autoAlpha: 0,
-    y: 18,
+    y: 12,
+    filter: "blur(4px)",
   });
 
   heroBio.inert = true;
@@ -193,27 +196,36 @@ if (heroBio) {
 function updateHeroPresentation(isDark) {
   if (!heroIntro || !heroBio) return;
 
-  gsap.killTweensOf([heroIntro, heroBio, bioElements]);
+  // Stop the previous transition immediately.
+  if (heroTimeline) {
+    heroTimeline.kill();
+  }
+
+  gsap.killTweensOf([heroIntro, heroBio, ...bioElements]);
 
   heroBio.inert = !isDark;
   heroBio.setAttribute("aria-hidden", String(!isDark));
   heroIntro.setAttribute("aria-hidden", String(isDark));
 
-  const duration = reduceMotion ? 0 : 0.65;
+  const duration = reduceMotion ? 0 : 0.24;
+
+  heroTimeline = gsap.timeline({
+    defaults: {
+      duration,
+      ease: "power2.out",
+      overwrite: "auto",
+    },
+  });
 
   if (isDark) {
-    // Both hero states transition together
-    const timeline = gsap.timeline();
-
-    timeline
+    // Sakura intro fades out as the portrait appears.
+    heroTimeline
       .to(
         heroIntro,
         {
           autoAlpha: 0,
-          filter: "blur(9px)",
-          y: -12,
-          duration,
-          ease: "power2.inOut",
+          y: -8,
+          filter: "blur(4px)",
         },
         0,
       )
@@ -221,10 +233,8 @@ function updateHeroPresentation(isDark) {
         heroBio,
         {
           autoAlpha: 1,
-          filter: "blur(0px)",
           y: 0,
-          duration,
-          ease: "power2.inOut",
+          filter: "blur(0px)",
         },
         0,
       )
@@ -233,35 +243,24 @@ function updateHeroPresentation(isDark) {
         {
           autoAlpha: 1,
           y: 0,
-          duration: reduceMotion ? 0 : 0.55,
           filter: "blur(0px)",
-          stagger: reduceMotion ? 0 : 0.08,
-          ease: "power3.out",
+          duration: reduceMotion ? 0 : 0.22,
+          stagger: reduceMotion ? 0 : 0.025,
+          ease: "power2.out",
         },
-        0.18,
+        0.04,
       );
   } else {
-    // Reverse the transition together
-    const timeline = gsap.timeline();
-
-    timeline
-      .to(
-        [heroIntro, heroBio],
-        {
-          duration: reduceMotion ? 0 : 0.55,
-          ease: "power2.inOut",
-          overwrite: true,
-        },
-        0,
-      )
+    // Portrait disappears and the original intro returns.
+    heroTimeline
       .to(
         bioElements,
         {
           autoAlpha: 0,
-          y: 12,
-          filter: "blur(8px)",
-          duration: reduceMotion ? 0 : 0.25,
-          stagger: 0.025,
+          y: 8,
+          filter: "blur(4px)",
+          duration: reduceMotion ? 0 : 0.14,
+          stagger: 0,
         },
         0,
       )
@@ -270,7 +269,7 @@ function updateHeroPresentation(isDark) {
         {
           autoAlpha: 0,
           y: 12,
-          filter: "blur(8px)",
+          filter: "blur(5px)",
         },
         0,
       )
@@ -315,7 +314,7 @@ themeToggle.addEventListener("click", () => {
 
   applyTheme(themeLocked || stillPreviewing);
 
-  themeToggle.setAttribute("aria-pressed", themeLocked);
+  themeToggle.setAttribute("aria-pressed", String(themeLocked));
 
   themeToggle.querySelector(".toggle-txt").textContent = themeLocked
     ? "lock light"
