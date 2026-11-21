@@ -165,6 +165,59 @@ if (!reduceMotion) {
 ========================================================= */
 
 const themeToggle = document.querySelector(".theme-toggle");
+// Show the theme toggle only while the hero is in view
+if (themeToggle) {
+  gsap.set(themeToggle, {
+    autoAlpha: 1,
+    pointerEvents: "auto",
+  });
+
+  ScrollTrigger.create({
+    trigger: ".hero",
+    start: "top top",
+    end: "bottom top",
+    onEnter: () => {
+      gsap.to(themeToggle, {
+        autoAlpha: 1,
+        duration: 0.35,
+        ease: "power2.out",
+        onStart: () => {
+          themeToggle.style.pointerEvents = "auto";
+        },
+      });
+    },
+    onLeave: () => {
+      gsap.to(themeToggle, {
+        autoAlpha: 0,
+        duration: 0.3,
+        ease: "power2.out",
+        onComplete: () => {
+          themeToggle.style.pointerEvents = "none";
+        },
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(themeToggle, {
+        autoAlpha: 1,
+        duration: 0.35,
+        ease: "power2.out",
+        onStart: () => {
+          themeToggle.style.pointerEvents = "auto";
+        },
+      });
+    },
+    onLeaveBack: () => {
+      gsap.to(themeToggle, {
+        autoAlpha: 0,
+        duration: 0.3,
+        ease: "power2.out",
+        onComplete: () => {
+          themeToggle.style.pointerEvents = "none";
+        },
+      });
+    },
+  });
+}
 const heroIntro = document.getElementById("heroIntro");
 const heroBio = document.querySelector(".hero-bio");
 
@@ -207,7 +260,7 @@ function updateHeroPresentation(isDark) {
   heroBio.setAttribute("aria-hidden", String(!isDark));
   heroIntro.setAttribute("aria-hidden", String(isDark));
 
-  const duration = reduceMotion ? 0 : 0.24;
+  const duration = reduceMotion ? 0 : 0.55;
 
   heroTimeline = gsap.timeline({
     defaults: {
@@ -244,9 +297,9 @@ function updateHeroPresentation(isDark) {
           autoAlpha: 1,
           y: 0,
           filter: "blur(0px)",
-          duration: reduceMotion ? 0 : 0.22,
-          stagger: reduceMotion ? 0 : 0.025,
-          ease: "power2.out",
+          duration: reduceMotion ? 0 : 0.5,
+          stagger: reduceMotion ? 0 : 0.06,
+          ease: "power2.inOut",
         },
         0.04,
       );
@@ -259,7 +312,7 @@ function updateHeroPresentation(isDark) {
           autoAlpha: 0,
           y: 8,
           filter: "blur(4px)",
-          duration: reduceMotion ? 0 : 0.14,
+          duration: reduceMotion ? 0 : 0.38,
           stagger: 0,
         },
         0,
@@ -319,7 +372,7 @@ themeToggle.addEventListener("click", () => {
   themeToggle.setAttribute("aria-pressed", String(themeLocked));
 
   themeToggle.querySelector(".toggle-txt").textContent = themeLocked
-    ? "lock light"
+    ? "unlock dark"
     : "hover me";
 });
 

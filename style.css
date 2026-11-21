@@ -30,7 +30,8 @@ ul {
   --font-script: "Sacramento", cursive;
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Inter", sans-serif;
-
+  --toggle-fill: #d9a5ae;
+  --toggle-hover-text: #fbf3ef;
   /* noir bio palette */
   --noir-bg: #09080a;
   --champagne: #e9d9c4;
@@ -44,6 +45,8 @@ body.theme-dark {
   --mauve: #c9a0a6;
   --ink: #f5ebe8;
   --silver: #4a3b3e;
+  --toggle-fill: rgba(233, 217, 196, 0.16);
+  --toggle-hover-text: #e9d9c4;
 }
 
 body {
@@ -54,8 +57,8 @@ body {
   overflow-x: hidden;
   padding-top: 90px;
   transition:
-    background 0.28s ease,
-    color 0.28s ease;
+    background 0.55s ease,
+    color 0.55s ease;
 }
 
 ::selection {
@@ -360,12 +363,15 @@ nav a:hover::after {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 1px solid var(--dusty);
+  border: 1px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   cursor: pointer;
+  background: transparent;
+  transition: background 0.4s ease;
+  will-change: opacity, visibility;
 }
 
 .toggle-txt {
@@ -381,7 +387,7 @@ nav a:hover::after {
 .toggle-fill {
   position: absolute;
   inset: 0;
-  background: var(--dusty);
+  background: var(--toggle-fill);
   border-radius: 50%;
   transform: scale(0);
   transition: transform 0.5s cubic-bezier(0.6, 0, 0.3, 1);
@@ -391,6 +397,11 @@ nav a:hover::after {
 .theme-toggle:hover .toggle-fill,
 .theme-toggle:focus .toggle-fill {
   transform: scale(1);
+}
+
+.theme-toggle:hover .toggle-txt,
+.theme-toggle:focus .toggle-txt {
+  color: var(--toggle-hover-text);
 }
 
 /* ---------- Section heading pattern ---------- */
