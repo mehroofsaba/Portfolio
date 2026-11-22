@@ -1,4 +1,4 @@
-# Sabielle — Personal Portfolio
+# Sabielle-Personal Portfolio
 
 <p align="center">
   <em>A little corner of the internet where I turn ideas into things.</em>
